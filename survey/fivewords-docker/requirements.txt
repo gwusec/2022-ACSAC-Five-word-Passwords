@@ -1,0 +1,9 @@
+django
+django-user_agents
+django-cors-headers
+mysqlclient
+memcache
+pyyaml
+ua-parser
+user-agents
+jsonfield

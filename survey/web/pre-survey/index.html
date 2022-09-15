@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Five-Word Password Survey</title>
+    <link type="image/x-icon" rel="shortcut icon" href="../icons/favicon.ico">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Required for survey js. -->
+    <script type="text/javascript" src="../ext-js/jquery.min.js"></script>
+    <script type="text/javascript" src="../ext-js/survey.jquery.min.js" defer></script>
+    <link type="text/css" rel="stylesheet" href="../ext-css/survey.modern.min.css" />
+    <link type="text/css" rel="stylesheet" href="../css/custom.css">
+
+    <!-- Bootstrap -->
+    <script type="text/javascript" src="../ext-js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="../ext-css/bootstrap.min.css">
+
+    <!-- GW branding colors CSS -->
+    <link rel="stylesheet" type="text/css" href="../css/gw-style.css">
+
+    <!-- Required for adding markdown capability to the survey. Allows us to use images directly in survey text. -->
+    <script type="text/javascript" src="../ext-js/showdown.min.js" defer></script>
+
+    <!-- Required for managing window resizing, entering the Prolific ID, and editing the URL parameters. -->
+    <script type="text/javascript" src="../js/window-management.js" defer></script>
+
+    <!-- Required for Google sign in button. -->
+    <meta name="google-signin-client_id" content="353069496362-4a8fuq2fs5crocmm1eaqqnm0bgn9m4mq.apps.googleusercontent.com">
+</head>
+
+<body oncopy="return false" oncut="return false" onpaste="return false">
+    <!-- GW themed navigation bar for the survey. -->
+    <div class="sticky-top">
+        <nav class="navbar navbar-expand-sm navbar-dark bg-navbar">
+            <img src="../icons/gw_monogram_2c_rev.png" alt="GW monogram logo" width="35" class="navbar-brand">
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <form class="form-inline mr-auto">
+                    <button class="btn btn-primary mr-2" type="button" data-toggle="collapse" data-target="#moreinfo" aria-expanded="false" aria-controls="moreinfo">
+                            <small><em>info</em> </small>
+                        </button>
+                    <button id="withdrawButton" type="button" class="btn btn-outline-secondary mr-2" data-toggle="modal" data-target="#withdrawDialogBackdrop">
+                            <small><em>opt-out</em></small>
+                        </button>
+                </form>
+            </div>
+        </nav>
+
+        <!-- Study information box. -->
+        <div class="collapse" id="moreinfo">
+            <div class="card card-body alert-success alert-dismissible">
+                <h5 class="card-title">
+                    <strong>Research Study:</strong> Five-Word Password Survey
+                </h5>
+                <hr>
+                <strong>Principle Investigator:</strong> Dr. Adam J. Aviv, The George Washington University
+                <button class="close" type="button" data-toggle="collapse" data-target="#moreinfo" aria-expanded="false" aria-controls="moreinfo">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Display resolution warning. -->
+    <div class="container mt-5" id="desktop-resize-warning">
+        <div class="card bg-danger text-white text-center">
+            <h1 class="card-header">Resolution Warning</h1>
+            <div class="card-body">
+                This survey can only be completed with a display resolution of over 1000 pixels width. Increase the size of your browser window or use the button below to withdraw from the survey.
+            </div>
+            <div class="card-footer">
+                <input type="button" class="btn btn-outline-light" value="Withdraw from Survey" data-toggle="modal" data-target="#withdrawDialogBackdrop" />
+            </div>
+        </div>
+    </div>
+
+    <!-- Prolific id entry. -->
+    <div class="container mt-5" id="prolific-id-entry">
+        <div class="card">
+            <h2 class="card-header">
+                Please enter your Prolific ID
+            </h2>
+            <div class="card-body">
+                <form>
+                    <div class="form-row">
+                        <div class="form-group col">
+                            <input type="text" class="mw-100 form-control" id="submitted-prolific-pid" name="submitted-prolific-pid" />
+                        </div>
+                        <div class="form-group col">
+                            <input type="button" class="btn btn-outline-primary" value="Submit" onclick="submitProlificIdAndStartSurvey()" />
+                        </div>
+                    </div>
+                </form>
+                <div class="alert alert-warning" role="alert" id="prolific-id-alert">
+                    <p>There was an <strong>error</strong> in reaching this page.</p>
+                    <p>
+                        <strong>
+                                We do not have a record of the Prolific ID entered having reserved a place in this
+                                study.
+                            </strong>
+                    </p>
+                    <p>
+                        You should go to <a href="https://www.prolific.co/" target="_blank">Prolific.co</a> and reserve a place first before proceeding.
+                    </p>
+                </div>
+                <div class="form-text text-muted">
+                    <p>
+                        If you already reserved a place on Prolific.co and do not wish to take the survey, please cancel the reservation so that others may take the survey.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Withdraw Dialog -->
+    <div class="modal fade" id="withdrawDialogBackdrop" data-keyboard="false" tabindex="-1" role="dialog" aria-labelledby="withdrawDialogBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="withdrawDialogBackdropLabel">Withdraw from the Survey</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                </div>
+                <div class="modal-body">
+                    Do you really want to withdraw from the survey?
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success" data-dismiss="modal">
+                            No, take me back
+                        </button>
+                    <button type="button" class="btn btn-danger" onclick="withdrawSurvey(survey)">
+                            Yes, I want to withdraw
+                        </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- The survey element is where surveyjs will load the survey on this html page. -->
+    <div id="surveyElement"></div>
+    <div id="surveyResult"></div>
+
+    <!-- Load static html content like the informed consent text. -->
+    <script type="text/javascript" src="../js/static-content.js" defer></script>
+    <script type="text/javascript" src="js/static-content.js" defer></script>
+
+    <!-- Load the survey-config.js file which contains the survey configuration. -->
+    <script type="text/javascript" src="js/survey-config.js" defer></script>
+
+    <!-- Load the survey-common.js file which contains the JavaScript needed to add functionality to this page. -->
+    <script type="text/javascript" src="../js/survey-common.js" defer></script>
+
+    <!-- Load the settings file with links to post in them. -->
+    <script type="text/javascript" src="../js/survey-settings.js" defer></script>
+
+    <!-- Load the pre-survey.js file which contains the JavaScript needed to add functionality to this page. -->
+    <script type="text/javascript" src="js/pre-survey.js" defer></script>
+
+    <!-- Load the debug.js file which contains the JavaScript needed to add debugger functionality to this page. -->
+    <!-- <script type="text/javascript" src="../js/debug.js" defer></script> -->
+
+    <!-- Load js for generating passwords. -->
+    <script type="text/javascript" src="../js/pako.js"></script>
+    <script type="text/javascript" src="../js/small_words.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,4 @@
+*~
+db
+backend/migrations/*
+__pycache__

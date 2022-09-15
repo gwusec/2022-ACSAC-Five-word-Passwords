@@ -1,0 +1,50 @@
+version: '3'
+services:
+  db:
+    image: mysql:latest
+    container_name: fivewords-mysql-db
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_USER: user 
+      MYSQL_PASSWORD: user-password # DON'T USE IN PRODUCTION
+      MYSQL_ROOT_PASSWORD: root-password # DON'T USE IN PRODUCTION
+      MYSQL_DATABASE: fivewords
+    ports:
+      - "3306:3306"
+    volumes: # saves the db locally so it's persistent 
+      - ./db:/var/lib/mysql
+
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: fivewords-phpmyadmin
+    links:
+      - db
+    environment: # defines the info to access the db as defined above
+      PMA_HOST: db
+      PMA_PORT: 3306
+      PMA_USER: user
+      PMA_PASSWORD: user-password
+      PMA_ARBITRARY: 1
+    restart: always
+    ports:
+      - 8080:80
+  
+  django:
+    build: .
+    container_name: fivewords-django
+    command: python backend/manage.py runserver 0.0.0.0:8000
+    ports:
+      - "8000:8000"
+    volumes: # the instance we want django to run 
+      - .:/backend
+    depends_on: # the db used for storing as defined above
+      - db
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "80:80"
+    volumes:
+      - ./web:/usr/share/nginx/html
+      

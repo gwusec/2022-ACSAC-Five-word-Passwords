@@ -1,0 +1,181 @@
+/* Boolean switch custom style */
+.sv-boolean__switch-blue {
+    background-color: #007bff;
+}
+
+.sv-boolean__switch-blue {
+    float: left;
+    box-sizing: border-box;
+    width: 4em;
+    height: 1.5em;
+    margin-right: 1.0625em;
+    margin-left: 1.3125em;
+    padding: 0.125em 0.1875em;
+    border-radius: 0.75em; }
+
+[dir="rtl"] .sv-boolean__switch-blue,
+[style*="direction:rtl"] .sv-boolean__switch-blue {
+    float: right;
+}
+
+#surveyElement {
+    display: none;
+}
+
+.imgCheckbox_text {
+    display: block;
+    text-align: center;
+    color: #495057;
+}
+
+.imgCheckbox {
+    user-select: none;
+    position: relative;
+    /*padding: .75rem 0;*/
+    margin: 0 .5rem .5rem 0;
+    display: inline-block;
+    border: 1px solid rgba(0,0,0,.125);
+    transition-duration: 300ms;
+    border-radius: .25rem;
+}
+
+.imgCheckbox img {
+    padding: .75rem 0;
+    transform: scale(1);
+    transition-duration: 300ms;
+}
+
+.imgCheckbox_hover:hover {
+    background-color: #f8f9fa;
+}
+
+.imgCheckbox_checked {
+    border-color: #007bff;
+    border-radius: .25rem;
+}
+
+.imgCheckbox_checked:hover {
+    background-color: #007bff;
+    color: white;
+}
+
+.imgCheckbox_checked img {
+    transform: scale(0.8);
+    transition-duration: 300ms;
+}
+
+.imgCheckbox_checked::before {
+    display: block;
+    background-size: 100% 100%;
+    content: "";
+    color: white;
+    font-weight: bold;
+    border-radius: 0 0 0 2px;
+    position: absolute;
+    margin: 0;
+    z-index: 1;
+    text-align: center;
+    transition-duration: 300ms;
+    background-image: url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNCAyNCI+PHBhdGggIGZpbGw9IiNmZmYiIGQ9Ik01LDEzbDItMmwzLDNsNy03bDIsMmwtOSw5TDUsMTN6Ij48L3BhdGg+PC9zdmc+");
+    background-color: #007bff;
+    top: 0;
+    right: 0;
+    width: 30px;
+    height: 30px;
+}
+
+
+/* Turn off clickability of a div with this class. */
+.noclick {
+    pointer-events: none;
+}
+
+/* Box around Google My Activity activities. */
+.activitybox {
+    width: 664px;
+    border: 5px solid black;
+    padding: 5px;
+    margin: 0;
+}
+
+[dir="rtl"] .withdraw-btn, [style*="direction:rtl"] .withdraw-btn {
+    float: left;
+}
+
+/* Slider custom color */
+.noUi-connect {
+    background: #007bff;
+}
+
+#desktop-resize-warning {
+    display:none;
+}
+
+#prolific-id-entry {
+    display:none;
+}
+
+#prolific-id-alert {
+    display:none;
+}
+
+.gmailImage {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+}
+
+.gmailSignedInText {
+    padding-right: 15px;
+    padding-left: 5px;
+}
+
+/* Custom matrix question classes */
+.matrixRadio__decorator {
+    border-radius: 50%;
+}
+
+.matrixItem__decorator {
+    position: relative;
+    display: inline-block;
+    width: 30px;
+    height: 30px;
+    border: solid 1px transparent;
+}
+
+.matrixRadio__svg {
+    border: #adb5bd solid 1px;
+    border-radius: 100%;
+    fill: transparent;
+}
+
+.matrixRadio--checked .matrixRadio__svg {
+    border-color: #007bff;
+    background-color: #007bff;
+    fill: white;
+}
+
+.matrixRadio--disabled .matrixRadio__svg {
+    border-color: #dbdbdb;
+}
+
+.matrixRadio--disabled.matrixRadio--checked .matrixRadio__svg {
+    fill: #dbdbdb;
+}
+
+.matrixItem__control:focus + .matrixItem__decorator {
+    background-color: rgba(0, 123, 255, 0.25);
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    transition: background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.matrixItem__control-label {
+    margin-left: 0.4125em;
+    vertical-align: middle;
+}
+
+.link {
+    color:red;
+    text-decoration:underline;
+    cursor:pointer;
+}

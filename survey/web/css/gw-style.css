@@ -1,0 +1,16 @@
+:root {
+    --gw-blue:  #033C5A;
+    --gw-light-blue: #F0FAFF;
+    --gw-gold: #AA9868;
+    --gw-white: #FFFFFF;
+}
+
+.bg-navbar{
+    background-color: var(--gw-blue);
+}
+
+.nav-link {
+    font-family: \u0022AvenirLTStd-Roman\u0022, Helvetica, Arial, sans-serif;
+    color: var(--gw-white);
+    link: var(--gw-white);
+}
