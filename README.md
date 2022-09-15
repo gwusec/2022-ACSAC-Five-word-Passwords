@@ -14,6 +14,11 @@ This repository contains data and survey technology used for the five-word passw
 * `clean_small_words.txt`: Dictionary containing 1,630 words used for the study.
 * `2022-ACSAC-Five-Word-Passwords-Artifact-Appendix.pdf`: Appendix describing this artifact including an abstract of the artifact, a check-list, links to related folders of this repository and the codebook used in the qualitative analysis. 
 
+### qualitative-analysis
+
+See the qualitative-analysis' [README](qualitative-analysis/) for details
+on contents of the folder.
+
 ### survey
 
 See the online survey's [README](survey/) for instructions on how to
