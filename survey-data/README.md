@@ -63,7 +63,17 @@ field? |
 | end_attempt_cnt | Number of attempts participant used in the third recall phase |
 | end_show_pword |  Whether or not participant clicked on the box to show their password in plain text in the third recall phase |
 
-### postsuurvey_data.csv
+### presurvey_demo_data.csv
+* File containing only demographics data from the pre-survey.
+
+| Header label | Survey Question |
+|--------------| --------------- |
+| demo_gender | What is your gender? |
+| demo_age | How old are you? |
+| demo_education | What is the highest degree or level of school you have completed? |
+| demo_background | Which of the following best describes your educational background or job field? |
+
+### postsurvey_data.csv
 | Header label | Survey Question                                                                                                                                                                            |
 |--------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | participant_id | Unique ID assigned to participants in the pre-survey. |
