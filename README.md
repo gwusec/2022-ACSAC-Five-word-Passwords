@@ -24,6 +24,12 @@ on contents of the folder.
 See the quantitative-analysis' [README](quantitative-analysis/) for details
 on the contents of the folder.
 
+#### Instructions for Environment Setup
+* The simplest way to use Jupyter Notebook is to install [Anaconda](https://www.anaconda.com/products/distribution), packages used for this study (`pandas` and `matplotlib`) came pre-installed with Anaconda.
+* To install `pandas` and `matplotlib` manually, please follow the instructions below:
+    * `pandas`: https://pandas.pydata.org/docs/getting_started/install.html
+    * `matplotlib`: https://matplotlib.org/stable/users/installing/index.html
+
 ### survey
 
 See the online survey's [README](survey/) for instructions on how to
