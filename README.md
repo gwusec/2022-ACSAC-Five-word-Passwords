@@ -19,6 +19,11 @@ This repository contains data and survey technology used for the five-word passw
 See the qualitative-analysis' [README](qualitative-analysis/) for details
 on contents of the folder.
 
+### quantitative-analysis
+
+See the quantitative-analysis' [README](quantitative-analysis/) for details
+on the contents of the folder.
+
 ### survey
 
 See the online survey's [README](survey/) for instructions on how to
