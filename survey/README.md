@@ -6,7 +6,9 @@ Our survey contains two parts, a pre-survey and a post-survey done two weeks aft
 
 ### Installation/Running Instruction:
 
-Ensure that you have docker installed on your machine first.
+Ensure that you have Docker installed on your machine first.
+
+Instructions on how to install Docker can be found [here](https://docs.docker.com/engine/install/).
 
 Change into the docker directory
 ```
